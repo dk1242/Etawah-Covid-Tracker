@@ -5,9 +5,67 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #90caf9;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.navheading{
+  font-size: 56px;
+  color: linear-gradient(0deg, rgb(30, 99, 112), rgb(41, 177, 98));
+  margin: auto;
+  text-align: center;
+}
+.cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100px;
+  
+}
+.card1{
+  border: 1px solid;
+}
+.card2{
+  border: 1px solid;
+}
+.card3{
+  border: 1px solid;
+}
+.cols{
+  width: 18rem;
+  margin: 10px;
+  height: 20em;
+  border-radius: 5%;
+}
+.cols:hover{
+  transform: scale(1.1);
+
+}
+.row{
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  margin: 0;
+}
+.deceased{
+  font-size: 20;
+  text-align: end;
+  margin-right: 2rem;
+  color: red;
+}
+#confirm{
+  background-color: #e1f5fe;
+}
+#active{
+  background-color: #fff9c4;
+}
+#recovered{
+  background-color: #c5e1a5;
+}
+.footerCont{
+  min-height: 80px;
 }

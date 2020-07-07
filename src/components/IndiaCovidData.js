@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import Cards from './Cards';
 
-class UpCovidData extends Component{
+class IndiaCovidData extends Component{
     constructor(){
         super();
         this.state={
@@ -14,7 +14,7 @@ class UpCovidData extends Component{
             daily_recovered: 0,
             daily_deceased: 0,
             lastUpdate: Date(),  
-            place: "Uttar Pradesh*"
+            place: "India*"
         }
         this.fetchData = this.fetchData.bind(this);
     }
@@ -24,15 +24,16 @@ class UpCovidData extends Component{
     async fetchData(){
         await Axios.get(`https://api.covid19india.org/data.json`)
         .then(Response => {
+            const l = Response.data.cases_time_series.length;
+            console.log(Response.data.cases_time_series[l-1]);
             this.setState({
-                confirmed: Response.data.statewise[5].confirmed,
-                recovered: Response.data.statewise[5].recovered,
-                active: Response.data.statewise[5].active,
-                deceased: Response.data.statewise[5].deaths,
-                daily_confirmed: Response.data.statewise[5].deltaconfirmed,
-                daily_recovered: Response.data.statewise[5].deltarecovered,
-                daily_deceased: Response.data.statewise[5].deltadeaths,
-                lastUpdate: Response.data.statewise[5].lastupdatedtime
+                confirmed: Response.data.cases_time_series[l-1].totalconfirmed,
+                recovered: Response.data.cases_time_series[l-1].totalrecovered,
+                active: Response.data.cases_time_series[l-1].totalconfirmed-Response.data.cases_time_series[l-1].totalrecovered-Response.data.cases_time_series[l-1].totaldeceased,
+                deceased: Response.data.cases_time_series[l-1].totaldeceased,
+                daily_confirmed: Response.data.cases_time_series[l-1].dailyconfirmed,
+                daily_recovered: Response.data.cases_time_series[l-1].dailyrecovered,
+                daily_deceased: Response.data.cases_time_series[l-1].dailydeceased,
             })
             
         })
@@ -49,4 +50,4 @@ class UpCovidData extends Component{
         )
     }
 }
-export default UpCovidData;
+export default IndiaCovidData;

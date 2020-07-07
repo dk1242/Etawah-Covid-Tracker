@@ -69,3 +69,7 @@ code {
 .footerCont{
   min-height: 80px;
 }
+.graph{
+  min-width: 400px;
+  min-height: 400px;
+}

@@ -5,6 +5,7 @@ import Navbarm from './components/NavBar';
 import UpCovidData from './components/UpCovidData';
 import Footer from './components/Footer';
 import IndiaCovidData from './components/IndiaCovidData';
+import Graph from './components/Graph';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <Navbarm />
       <div>
         <CovidData />
-
+        <Graph />
         <UpCovidData />
         <IndiaCovidData />
       </div>

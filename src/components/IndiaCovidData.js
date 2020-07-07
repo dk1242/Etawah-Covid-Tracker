@@ -12,9 +12,8 @@ class IndiaCovidData extends Component{
             deceased: 0,
             daily_confirmed:0,
             daily_recovered: 0,
-            daily_deceased: 0,
-            lastUpdate: Date(),  
-            place: "India*"
+            daily_deceased: 0, 
+            place: "India"
         }
         this.fetchData = this.fetchData.bind(this);
     }
@@ -25,7 +24,6 @@ class IndiaCovidData extends Component{
         await Axios.get(`https://api.covid19india.org/data.json`)
         .then(Response => {
             const l = Response.data.cases_time_series.length;
-            console.log(Response.data.cases_time_series[l-1]);
             this.setState({
                 confirmed: Response.data.cases_time_series[l-1].totalconfirmed,
                 recovered: Response.data.cases_time_series[l-1].totalrecovered,

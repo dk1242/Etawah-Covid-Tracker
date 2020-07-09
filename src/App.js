@@ -19,7 +19,7 @@ function App() {
         <IndiaCovidData />
       </div>
       <div style={{margin: "1%"}}>
-        This data is fetched from <a href="www.api.covid19india.org">Api of covid19india.org</a>.
+        This data is fetched from <a href="https://api.covid19india.org/">Api of covid19india.org</a>.
         There may be some difference in the numbers as it may not be updated at the moment.
       </div>
       <Footer />

@@ -24,15 +24,22 @@ class UpCovidData extends Component{
     async fetchData(){
         await Axios.get(`https://api.covid19india.org/data.json`)
         .then(Response => {
+            var l=5;
+            for(var i=0; i<Response.data.statewise.length; i++){
+                if(Response.data.statewise[i].state === "Uttar Pradesh"){
+                    l=i;
+                    i=Response.data.statewise.length-1;
+                }
+            }
             this.setState({
-                confirmed: Response.data.statewise[5].confirmed,
-                recovered: Response.data.statewise[5].recovered,
-                active: Response.data.statewise[5].active,
-                deceased: Response.data.statewise[5].deaths,
-                daily_confirmed: Response.data.statewise[5].deltaconfirmed,
-                daily_recovered: Response.data.statewise[5].deltarecovered,
-                daily_deceased: Response.data.statewise[5].deltadeaths,
-                lastUpdate: Response.data.statewise[5].lastupdatedtime
+                confirmed: Response.data.statewise[l].confirmed,
+                recovered: Response.data.statewise[l].recovered,
+                active: Response.data.statewise[l].active,
+                deceased: Response.data.statewise[l].deaths,
+                daily_confirmed: Response.data.statewise[l].deltaconfirmed,
+                daily_recovered: Response.data.statewise[l].deltarecovered,
+                daily_deceased: Response.data.statewise[l].deltadeaths,
+                lastUpdate: Response.data.statewise[l].lastupdatedtime
             })
             
         })

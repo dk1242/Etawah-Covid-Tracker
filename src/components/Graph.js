@@ -163,7 +163,7 @@ class Graph extends Component {
       <Container>
         <Row style={{ minHeight: "400px" }}>
           <Col sm style={{ minWidth: "400px", height: "600", padding: "10px", backgroundColor: "#e3f2fd", borderRadius: "15px", margin: "10px" }}>
-            <Line
+            {this.state.graphdata.labels === [] ? <div>Loading Data in Graph...</div> : <Line
               ref={this.chartReference}
               data={this.reloadData()}
 
@@ -199,10 +199,10 @@ class Graph extends Component {
                   }
                 }
               }
-              redraw />
+              redraw />}
           </Col>
           <Col sm style={{ minWidth: "400px", height: "500", padding: "25px", backgroundColor: "#e3f2fd", borderRadius: "15px", margin: "10px" }}>
-            <Pie
+            {this.state.pieData.datasets[0].data === [] ? <div>Loading Data in Graph...</div> : <Pie
               data={this.state.pieData}
               height={250}
               width={300}
@@ -219,7 +219,7 @@ class Graph extends Component {
                   position: 'bottom'
                 }
               }}
-            />
+            />}
 
           </Col>
         </Row>

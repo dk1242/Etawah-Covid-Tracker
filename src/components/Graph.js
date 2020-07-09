@@ -27,7 +27,7 @@ const chart1 = {
     {
       label: 'Active Cases',
       fill: true,
-      backgroundColor: "#ffa726",
+      backgroundColor: "#ffb74d",
       borderColor: '#e65100',
       borderWidth: 1.5,
       data: []
@@ -97,6 +97,7 @@ class Graph extends Component {
         {
           label: 'Active Cases',
           fill: true,
+          backgroundColor: "#ff9800",
           borderColor: '#e65100',
           borderWidth: 1.5,
           data: this.state.graphdata.datasets[2].data
@@ -114,9 +115,9 @@ class Graph extends Component {
         const l = resp.data.districtsDaily["Uttar Pradesh"].Etawah.length;
 
         this.setState(state => {
-          if (labels <= l - 24) {
-            if (labels < l - 24) {
-              for (var i = 24; i < l; i++) {
+          if (labels <= l - 25) {
+            if (labels < l - 25) {
+              for (var i = 24; i < l-1; i++) {
                 labels = state.graphdata.labels.push(resp.data.districtsDaily["Uttar Pradesh"].Etawah[i].date);
                 confirmed = state.graphdata.datasets[0].data.push(resp.data.districtsDaily["Uttar Pradesh"].Etawah[i].confirmed);
                 recovered = state.graphdata.datasets[1].data.push(resp.data.districtsDaily["Uttar Pradesh"].Etawah[i].recovered);

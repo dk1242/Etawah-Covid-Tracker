@@ -15,7 +15,7 @@ class Cards extends Component{
                 <Card.Body>
                 <Card.Title>
                 <h1 style={{color:'blue'}}>Confirmed Cases{this.props.daily_confirmed>999 ? <br />: ''}
-                {this.props.daily_confirmed === '0' ? '': <span style={{color:'#5e35b1'}}>(+{this.props.daily_confirmed})</span>}</h1>
+                {this.props.daily_confirmed == 0 ? '': <span style={{color:'#5e35b1'}}>(+{this.props.daily_confirmed})</span>}</h1>
                 </Card.Title>
                 <br />
                 <hr />
@@ -39,7 +39,7 @@ class Cards extends Component{
                 <Card border="success" className="cols" id="recover">
                 <Card.Body>
                 <Card.Title><h1 style={{color:'green'}}>Recovered Cases{this.props.daily_recovered>999 ? <br />: ''}
-                {this.props.daily_recovered === '0' ? '' : <span style={{color:'#1b5e20'}}>(+{this.props.daily_recovered})</span>}</h1></Card.Title>
+                {this.props.daily_recovered == 0 ? '' : <span style={{color:'#1b5e20'}}>(+{this.props.daily_recovered})</span>}</h1></Card.Title>
                 <br />
                 <hr />
                 <br />
@@ -50,7 +50,7 @@ class Cards extends Component{
                 </Card>
             </Row>
             <br />
-            <div className="deceased"><i>No. of Deaths: {this.props.deceased}(+{this.props.daily_deceased})</i></div>
+            <div className="deceased"><i>No. of Deaths: {this.props.deceased} {this.props.daily_deceased == 0 ? '' : <span>(+{this.props.daily_deceased})</span>}</i></div>
             
             </Container>
         )
